@@ -19,15 +19,21 @@ class The_Test_s_The_ThingTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testNumWords() {
+        assert(Scholar.scholar.corpus.count != 0) // should this be == or != because == fails since the number of words is not equal to 0
+        assert(Scholar.scholar.corpus.count == 15642)
     }
 
+    func testCounts() {
+        assert(Scholar.scholar["feasting"] != nil)
+        assert(Scholar.scholar["feasting"]! < 25)
+        assert(Scholar.scholar["feasting"]! == 3)
+    }
+    
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measure {
-            // Put the code you want to measure the time of here.
+            Scholar.scholar// Put the code you want to measure the time of here.
         }
     }
 
